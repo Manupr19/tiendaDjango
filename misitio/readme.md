@@ -1,1 +1,2 @@
 # Tienda
+Proyecto Django
