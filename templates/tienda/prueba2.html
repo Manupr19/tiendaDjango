@@ -1,0 +1,23 @@
+{% extends "tienda/base.html" %}
+{% block title %}Prueba2{% endblock %}
+{% block content %}
+<h1>Formulario</h1>
+
+
+
+
+<form action="prueba2" method="post">
+    {% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+
+<hr />
+
+
+<form action="prueba2" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>

@@ -9,7 +9,11 @@ class PublishedManager(models.Manager):
  def get_queryset(self):
     return super().get_queryset()\
                             .filter(status=Post.Status.PUBLISHED)
-
+class Articulo(models.Model):
+    name= models.CharField(max_length=50)
+    stock= models.IntegerField(blank=True,null=True)
+    pvp=models.IntegerField(blank=True,null=True)
+    imagen= models.ImageField(upload_to='/tienda')
 class Post(models.Model):
 
     class Status(models.TextChoices):

@@ -3,6 +3,7 @@ from .models import Post
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from tienda.forms import NameForm
+from tienda.forms import ArticuloForm
 # Create your views here.
 def post_list(request):
     posts = Post.published.all()
@@ -31,3 +32,12 @@ def prueba(request):
      else:
         form=NameForm()
         return render(request,'tienda/prueba.html',{'form':form})
+def Altaarticulo(request):
+    if request.method == 'POST':
+        form=ArticuloForm(request.POST)
+        if form.is_valid():
+            print("fromulario validado correctamente")
+            form.save()
+        else:
+            form=ArticuloForm()
+            return render(request,'tienda/prueba2.html',{"form":form})
