@@ -18,7 +18,7 @@ class Articulo(models.Model):
     name = models.CharField(max_length=100)
     stock = models.IntegerField()
     pvp = models.DecimalField(max_digits=8, decimal_places=2)
-    imagen = models.ImageField(upload_to='articulos') ```
+    imagen = models.ImageField(upload_to='articulos') ´´´
 
 2-En forms.py, define la clase ArticuloForm como un formulario de modelo que utiliza la clase Articulo:
 ```from django import forms
