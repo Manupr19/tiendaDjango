@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from  tienda.views import prueba
+from tienda.views import Altaarticulo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/', include('tienda.urls', namespace='tienda')),
     path('prueba',prueba),
+    path('articulo',Altaarticulo)
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Post
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
@@ -34,10 +34,11 @@ def prueba(request):
         return render(request,'tienda/prueba.html',{'form':form})
 def Altaarticulo(request):
     if request.method == 'POST':
-        form=ArticuloForm(request.POST)
+        form=ArticuloForm(request.POST,request.FILES)
         if form.is_valid():
             print("fromulario validado correctamente")
             form.save()
+            return redirect('inicio')
         else:
             form=ArticuloForm()
             return render(request,'tienda/prueba2.html',{"form":form})

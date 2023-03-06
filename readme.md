@@ -1,7 +1,7 @@
 # Tienda
 Proyecto Django
 
-## Creación clase Articulo en models.py
+## Creación FORM MODEL "ARTICULO"
 
 [Models forms][https://docs.djangoproject.com/en/4.1/topics/forms/modelforms/]
 
@@ -9,9 +9,35 @@ Le añado articulos nuevos y pruebo a insertar una imagen, para ello es necesari
 
 ```pip install pillow```
 
-Despues en models.py añado los nuevos atributos, en este caso es el de imagen 
+Para crear un Form model en Django con una clase Articulo en models.py, una clase ArticuloForm en forms.py y un método altarticulo en views.py, puedes seguir estos pasos:
 
-```imagen= models.ImageField(upload_to='/tienda')```
+1-En models.py, define la clase Articulo con los atributos name, stock, pvp e imagen, utilizando los campos adecuados de Django
+```from django.db import models
 
-De esta forma especifico que coja la imagen cargada desde el directorio /tienda
-Posteriormente me voy a Views.py y creo Altaarticulo para tratar la petición GET y crear el formulario o la POST para guardarlo 
+class Articulo(models.Model):
+    name = models.CharField(max_length=100)
+    stock = models.IntegerField()
+    pvp = models.DecimalField(max_digits=8, decimal_places=2)
+    imagen = models.ImageField(upload_to='articulos')```
+
+2-En forms.py, define la clase ArticuloForm como un formulario de modelo que utiliza la clase Articulo:
+```from django import forms
+from .models import Articulo
+
+class ArticuloForm(forms.ModelForm):
+    class Meta:
+        model = Articulo
+        fields = ['name', 'stock', 'pvp', 'imagen']```
+
+3-Crear la vista altaArticulo en "views.py" que maneje la creación de un nuevo articulo a traves de ArticuloForm:
+
+```def Altaarticulo(request):
+    if request.method == 'POST':
+        form=ArticuloForm(request.POST,request.FILES)
+        if form.is_valid():
+            print("fromulario validado correctamente")
+            form.save()
+            return redirect('inicio')
+        else:
+            form=ArticuloForm()
+            return render(request,'tienda/prueba2.html',{"form":form})'''

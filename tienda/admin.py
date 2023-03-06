@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import Post
+from .models import Articulo
 # Register your models here.
 admin.site.register(Post)
+admin.site.register(Articulo)
 class PostAdmin(admin.ModelAdmin):
  list_display = ['name', 'pvp', 'author', 'publish', 'status']
  list_filter = ['status', 'created', 'publish', 'author']
