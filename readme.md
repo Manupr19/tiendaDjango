@@ -21,7 +21,7 @@ class Articulo(models.Model):
     pvp = models.DecimalField(max_digits=8, decimal_places=2)
     imagen = models.ImageField(upload_to='articulos') 
 
-´´´
+```
 
 2-En forms.py, define la clase ArticuloForm como un formulario de modelo que utiliza la clase Articulo:
 
