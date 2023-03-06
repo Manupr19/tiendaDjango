@@ -40,4 +40,4 @@ class ArticuloForm(forms.ModelForm):
             return redirect('inicio')
         else:
             form=ArticuloForm()
-            return render(request,'tienda/prueba2.html',{"form":form})'''
+            return render(request,'tienda/prueba2.html',{"form":form})```
