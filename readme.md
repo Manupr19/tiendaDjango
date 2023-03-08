@@ -27,8 +27,33 @@ cd mysite
 
 py manage.py migrate
 
+py manage.py runserver
 
+```
 
+## Creación de una APP
+
+```
+
+py manage.py startapp blog
+
+```
+
+## Creacion y aplicacion de migrations en blog
+
+```
+py manage.py makemigrations blog
+
+python manage.py migrate
+
+```
+
+## Creación de superusuario
+
+```
+py manage.py createsuperuser
+
+```
 
 
 ## Creación FORM MODEL "ARTICULO"
