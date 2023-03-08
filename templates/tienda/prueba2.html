@@ -16,8 +16,9 @@
 <hr />
 
 
-<form action="prueba2" method="post">
+<form  method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <input type="submit" value="Submit">
 </form>
+{% endblock %}

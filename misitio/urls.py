@@ -17,11 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 
 from  tienda.views import prueba
-from tienda.views import Altaarticulo
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/', include('tienda.urls', namespace='tienda')),
-    path('prueba',prueba),
-    path('articulo',Altaarticulo)
+    path('prueba',prueba)
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

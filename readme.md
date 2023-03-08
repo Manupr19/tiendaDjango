@@ -1,5 +1,35 @@
 # Tienda
 Proyecto Django
+## Creación entorno virtual 
+```
+py -m venv my_env
+
+.\my_env\Scripts\activate
+
+```
+## Instalación Django
+```
+pip install Django~=4.1.0
+
+py -m django --version
+
+```
+## Modelo MTV
+
+model-template-Views
+
+## Creación de el proyecto
+```
+
+django-admin startproject mysite
+
+cd mysite
+
+py manage.py migrate
+
+
+
+
 
 ## Creación FORM MODEL "ARTICULO"
 

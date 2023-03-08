@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from .views import Altaarticulo
+from .views import alta_articulo
 app_name = 'tienda'
 urlpatterns = [
  # post views
  #path('', views.post_list, name='post_list'),
  #path('<int:id>/', views.post_detail, name='post_detail'),
- path('alta-articulo/', Altaarticulo, name='alta_articulo'),
+ path('alta-articulo/', alta_articulo, name='alta_articulo'),
 ]

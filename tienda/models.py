@@ -13,7 +13,7 @@ class Articulo(models.Model):
     name= models.CharField(max_length=50)
     stock= models.IntegerField(blank=True,null=True)
     pvp=models.DecimalField(max_digits=8, decimal_places=2)
-    imagen= models.ImageField(upload_to='articulos/')
+    imagen= models.ImageField(upload_to='articulos/', blank=True)
 class Post(models.Model):
 
     class Status(models.TextChoices):

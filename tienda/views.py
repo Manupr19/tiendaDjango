@@ -32,13 +32,16 @@ def prueba(request):
      else:
         form=NameForm()
         return render(request,'tienda/prueba.html',{'form':form})
-def Altaarticulo(request):
+     
+def alta_articulo(request):
     if request.method == 'POST':
         form=ArticuloForm(request.POST,request.FILES)
         if form.is_valid():
-            print("fromulario validado correctamente")
+            print("formulario validado correctamente")
             form.save()
-            return redirect('inicio')
+            return redirect('/tienda/alta-articulo')
         else:
-            form=ArticuloForm()
             return render(request,'tienda/prueba2.html',{"form":form})
+    else:
+        form=ArticuloForm()
+        return render(request,'tienda/prueba2.html',{"form":form})
